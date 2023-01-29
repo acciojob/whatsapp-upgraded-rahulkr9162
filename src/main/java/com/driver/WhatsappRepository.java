@@ -78,9 +78,11 @@ public class WhatsappRepository {
 
         if(userList.contains(user) == false) throw new Exception("User is not a participant");
 
-        if(group.getName() == approver.getName()){
-            group.setName(currAdmin.getName());
-        }
+//        if(userList.get(0) == approver){
+//            group.setName(currAdmin.getName());
+//        }
+        userList.set(0,user);
+
         return "SUCCESS";
     }
 
