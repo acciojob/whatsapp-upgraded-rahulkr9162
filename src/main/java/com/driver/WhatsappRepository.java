@@ -39,8 +39,8 @@ public class WhatsappRepository {
         else{
             count++;
             // Group chat
-            GroupDb.put("Group1", users);
-            group.setName("Group1");
+            GroupDb.put("Group"+count, users);
+            group.setName("Group"+count);
             group.setNumberOfParticipants(users.size());
             return group;
         }
@@ -53,7 +53,7 @@ public class WhatsappRepository {
         message.setId(1);
         messageDb.put(1, message);
 
-        return 2;
+        return message.getId();
     }
 
     public int sendMessage(Message message, User sender, Group group) throws Exception {
