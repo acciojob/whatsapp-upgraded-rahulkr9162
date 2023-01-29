@@ -27,7 +27,8 @@ public class WhatsappRepository {
     }
 
     public Group createGroup(List<User> users){
-        int count = 0;
+        int count = GroupDb.size();
+
         Group group = new Group();
         if(users.size() == 2){
             // Personal chat
