@@ -103,7 +103,6 @@ public class WhatsappRepository {
                 else{
                     GroupDb.get(groupName).remove(user);
                 }
-                break;
             }
         }
         if(flag == false) throw new Exception("User not found");
