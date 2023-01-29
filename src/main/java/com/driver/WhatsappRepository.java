@@ -63,7 +63,7 @@ public class WhatsappRepository {
             throw new Exception("You are not allowed to send message");
         }
 
-        if(GroupDb.containsKey(group) == false){
+        if(GroupDb.containsKey(group.getName()) == false){
             throw new Exception("Group does not exist");
         }
 
