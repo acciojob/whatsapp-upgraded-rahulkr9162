@@ -59,17 +59,16 @@ public class WhatsappRepository {
     public int sendMessage(Message message, User sender, Group group) throws Exception {
         List<User> userList = GroupDb.get(group.getName());
 
-        if(userList.contains(sender) == false){
-            throw new Exception("You are not allowed to send message");
-        }
-
         if(GroupDb.containsKey(group.getName()) == false){
             throw new Exception("Group does not exist");
         }
 
-
-     return 1;
+        if(userList.contains(sender) == false){
+            throw new Exception("You are not allowed to send message");
+        }
+     return group.getNumberOfParticipants();
     }
+
     public String changeAdmin(User approver, User user, Group group) throws Exception{
         if(GroupDb.containsKey(group.getName()) == false) throw new Exception("Group does not exist");
         List<User> userList = GroupDb.get(group.getName());
