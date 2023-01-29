@@ -88,14 +88,6 @@ public class WhatsappRepository {
 
     public int removeUser(User user) throws Exception{
         boolean flag = false;
-        for(String userKey : userDb.keySet()){
-            if(userKey == user.getName()){
-                flag = true;
-            }
-        }
-        if(flag == false) throw new Exception("User not found");
-
-
         for(String groupName : GroupDb.keySet()){
             if(GroupDb.get(groupName).contains(user) == true){
                 flag = true;
