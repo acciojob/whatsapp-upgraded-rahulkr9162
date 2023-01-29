@@ -97,13 +97,11 @@ public class WhatsappRepository {
         for(String groupName : GroupDb.keySet()){
             if(GroupDb.get(groupName).contains(user) == true){
                 flag = true;
-                if(GroupDb.get(groupName).get(0).getName() == user.getName()){
+                if(GroupDb.get(groupName).get(0) == user){
                     throw new Exception("Cannot remove admin");
                 }
                 else{
                     GroupDb.get(groupName).remove(user);
-                    user.setName(null);
-                    user.setMobile(null);
                 }
                 break;
             }
