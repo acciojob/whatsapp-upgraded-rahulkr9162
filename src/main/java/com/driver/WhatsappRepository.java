@@ -39,9 +39,10 @@ public class WhatsappRepository {
         else{
             count++;
             // Group chat
-            GroupDb.put("Group"+count, users);
-            group.setName("Group"+count);
+            String id = "Group"+count;
+            group.setName(id);
             group.setNumberOfParticipants(users.size());
+            GroupDb.put(id, users);
             return group;
         }
     }
