@@ -50,8 +50,9 @@ public class WhatsappRepository {
         Message message = new Message();
         message.setContent(content);
         message.setTimestamp(new Date());
-        message.setId(1);
-        messageDb.put(1, message);
+        int id = messageDb.size();
+        message.setId(id+1);
+        messageDb.put(id+1, message);
 
         return message.getId();
     }
