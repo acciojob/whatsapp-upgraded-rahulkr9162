@@ -30,7 +30,7 @@ public class WhatsappRepository {
         int count = 0;
         if (GroupDb.size() != 0) {
             for (String str : GroupDb.keySet()) {
-                if (str.substring(0, 5) == "Group") count++;
+                if (str.contains("Group")) count++;
             }
         }
 
