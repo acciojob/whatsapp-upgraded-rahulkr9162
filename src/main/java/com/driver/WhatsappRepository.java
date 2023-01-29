@@ -100,9 +100,6 @@ public class WhatsappRepository {
                 if(GroupDb.get(groupName).get(0) == user){
                     throw new Exception("Cannot remove admin");
                 }
-                else{
-                    GroupDb.get(groupName).remove(user);
-                }
             }
         }
         if(flag == false) throw new Exception("User not found");
