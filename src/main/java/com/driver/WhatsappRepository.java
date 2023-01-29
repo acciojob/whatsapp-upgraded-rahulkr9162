@@ -26,24 +26,30 @@ public class WhatsappRepository {
 
     }
 
-    public Group createGroup(List<User> users){
-        int count = GroupDb.size();
+    public Group createGroup(List<User> users) {
+        int count = 0;
+        if (GroupDb.size() != 0) {
+            for (String str : GroupDb.keySet()) {
+                if (str.substring(0, 5) == "Group") count++;
+            }
+        }
 
         Group group = new Group();
-        if(users.size() == 2){
+        if (users.size() == 2) {
             // Personal chat
-            GroupDb.put(users.get(users.size()-1).getName(), users);
+            GroupDb.put(users.get(users.size() - 1).getName(), users);
             group.setName(users.get(1).getName());
             group.setNumberOfParticipants(users.size());
             return group;
-        }
+        } else {
             count++;
             // Group chat
-            group.setName("Group "+count);
+            group.setName("Group " + count);
             group.setNumberOfParticipants(users.size());
-            GroupDb.put("Group "+count, users);
+            GroupDb.put("Group " + count, users);
             return group;
         }
+    }
 
 
     public int createMessage(String content){
