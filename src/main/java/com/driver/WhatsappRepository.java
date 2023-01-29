@@ -104,13 +104,15 @@ public class WhatsappRepository {
                 }
                 else{
                     GroupDb.get(groupName).remove(user);
+                    user.setName(null);
+                    user.setMobile(null);
                 }
                 break;
             }
         }
         if(flag == false) throw new Exception("User not found");
 
-        return 1;
+        return GroupDb.get(user.getName()).size()+1+1;
     }
 
     public String findMessage(Date start, Date end, int K){
