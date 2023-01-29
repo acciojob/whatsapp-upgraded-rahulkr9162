@@ -71,7 +71,7 @@ public class WhatsappRepository {
      return 1;
     }
     public String changeAdmin(User approver, User user, Group group) throws Exception{
-        if(GroupDb.containsKey(group) == false) throw new Exception("Group does not exist");
+        if(GroupDb.containsKey(group.getName()) == false) throw new Exception("Group does not exist");
         List<User> userList = GroupDb.get(group.getName());
         User currAdmin = userList.get(0);
         if(currAdmin != approver) throw new Exception("Approver does not have rights");
@@ -87,13 +87,6 @@ public class WhatsappRepository {
     public int removeUser(User user) throws Exception{
         boolean flag = false;
         for(String groupName : GroupDb.keySet()){
-//            List<User> userList = GroupDb.get(groupName);
-//            for(User user1 : userList){
-//                if(user1 == user){
-//                    flag = true;
-//                    break;
-//                }
-//            }
             if(GroupDb.get(groupName).contains(user) == true){
                 flag = true;
                 if(GroupDb.get(groupName).get(0).getName() == user.getName()){
