@@ -32,12 +32,12 @@ public class WhatsappRepository {
         Group group = new Group();
         if(users.size() == 2){
             // Personal chat
-            GroupDb.put(users.get(1).getName(), users);
-            group.setName(users.get(1).getName());
-            group.setNumberOfParticipants(users.size());
+
+            GroupDb.put(users.get(users.size()-1).getName(), users);
+
             return group;
         }
-        else{
+        else if(users.size() >= 2){
             count++;
             // Group chat
             group.setName("Group "+count);
