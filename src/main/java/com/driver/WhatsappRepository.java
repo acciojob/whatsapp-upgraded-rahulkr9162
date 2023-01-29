@@ -67,7 +67,7 @@ public class WhatsappRepository {
         if(userList.contains(sender) == false){
             throw new Exception("You are not allowed to send message");
         }
-     return group.getNumberOfParticipants();
+     return message.getId();
     }
 
     public String changeAdmin(User approver, User user, Group group) throws Exception{
